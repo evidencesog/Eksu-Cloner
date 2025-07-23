@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from eksuportal.eksu.edu.ng/login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Jul 2025 08:26:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head lang="en">
+
+  <meta charset="utf-8" />
+  <title>Signin | EKITI STATE UNIVERSITY</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="Welcome to Ekiti State University" name="title" />
+  <meta content="University Portal" name="description" />
+  <meta content="EKITI STATE UNIVERSITY" name="author" />
+  <link href="/static/plugins/bootstrap/bootstrap-4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/static/css/style_sourceadmin.min.css" rel="stylesheet" />
+  <link href="/static/css/new_login.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/static/styles/font-awesome.css" />
+  <link href="/static/css/toastr.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/static/favicon.ico" />
+
+  <script src="/static/plugins/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="/static/js/jquery.min.js"></script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- <link href="assets/css/home.css" rel="stylesheet" /> -->
+
+
+<script>
+  function showpassword(index) {
+    const passwordInput = document.getElementById("password");
+    const icon = document.querySelector("#showpassword i");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+</script>
+
+
+
+
+</head>
+
+
+
+<body>
+
+  <div id="page-container" class="page-container">
+    <div class="bg-cover" style="background-image: url(images/415-eksu-acad-buiding.jpg)"></div>
+    <!-- <div class="bg-cover" style="background-image: url(assets_ajax/img/coming-soon/coming-soon-1.jpg)"></div> -->
+    <div class="bg-cover" style="background: white; opacity: 0.8"></div>
+
+    <div class="login">
+
+      <div class="login-brand text-white" style="background: #F04B46">
+
+        <a href="index-2.html"><img src="images/newllogo.png" height="36" alt="" /></a>
+        <p class="pull-right">
+          <i class="fa fa-lock"></i> SIGN-IN
+        </p>
+      </div>
+
+
+      <div class="login-content">
+        <!-- <h4 class="text-center m-t-0 m-b-5">PORTAL LOGIN</h4> -->
+        <div class="note note-warning">
+          <div class="note-icon"><i class="fa fa-info-circle"></i></div>
+          <div class="note-content">
+            <h4><b>Notice:</b></h4>
+
+            <p><span class="label label-success">STUDENT</span> Enter JAMB REG Number or Matric number as Username and password1 as default password</p>
+            <p><span class="label label-success">STAFF &nbsp;&nbsp; &nbsp; </span> Enter Staff ID as Username and your password</p>
+            <p>
+              <marquee> <b>NEW USER </b> If you are using the portal for the first time, use <b>"password1"</b> as your default password and matriculation number or Jamb Reg as your username......</marquee>
+            </p>
+
+          </div>
+        </div>
+
+
+
+
+
+        <form action="/login" method="POST" id="login_form" name="login_form" class="form-input-flat">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon input-lg  text-black f-s-12" style=" font-weight: bold; padding-top: 12px;">
+                <i class="fa fa-user"></i> USERNAME&nbsp;
+              </div>
+              <input type="text" class="form-control input-lg f-s-12 text-black" name="username" id="email" value="" placeholder="Enter your username" autocomplete="off" data-mask="email" required autofocus />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon input-lg  text-black f-s-12" style="font-weight: bold; padding-top: 12px;">
+                <i class="fa fa-key"></i> PASSWORD
+              </div>
+              <input type="password" class="form-control input-lg f-s-12 text-black" name="password" id="password" value="" placeholder="password" autocomplete="off" required />
+              <div class="input-group-addon" onclick="showpassword(0)" style="color: #333; font-size: 16px" id="showpassword">
+                <i class="fa fa-eye"></i>
+              </div>
+            </div>
+          </div>
+
+
+          <!--<center><div class="g-recaptcha text-center m-b-10" data-sitekey="6Le18nIlAAAAANrJN_aR3MdNwZJCLJTFP7g0AjmG"></div></center>-->
+
+
+
+
+
+
+
+          <div class="row m-b-20">
+            <div class="col-lg-12">
+             <button type="submit" class="btn btn-lg btn-block text-left g-recaptcha" style="background: #F04B46; color: #fff">
+  LOGIN <i class="fa fa-sign-in pull-right"></i>
+</button>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 m-b-10">
+              <a href="forget_password.html" class="btn btn-default btn-lg btn-block text-left f-s-14" align="left">Reset Password <i class="fa fa-lock pull-right m-t-5"></i></a>
+            </div>
+            <div class="col-lg-6 m-b-10">
+              <a href="index-2.html" class="btn btn-success btn-lg btn-block text-left f-s-14" align="left">Homepage <i class="fa fa-home pull-right m-t-5"></i></a>
+            </div>
+          </div>
+
+
+          <input type="hidden" id="psd1" value="0">
+
+          <div id="notification"></div>
+          <div class="text-center">
+            Powered By? <a href="#" class="text-muted"><b></b></a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="js/toastr3.js"></script>
+  <script src="lns.js"></script>
+
+
+
+
+
+
+</body>
+
+
+
+<!-- Mirrored from eksuportal.eksu.edu.ng/login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Jul 2025 08:26:45 GMT -->
+</html>
+           
