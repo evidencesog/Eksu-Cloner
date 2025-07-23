@@ -58,6 +58,31 @@ From the HTTrack result:
    All necessary assets (CSS, JS, images) were preserved under the static/ directory.
 
 
+📁 Static Assets Setup:
+
+After cloning the portal using HTTrack, you'll find the static assets in:
+   "/home/evidence/eksuportal.eksu.edu.ng/assets_ajax/"
+   
+To ensure the login.html page properly loads CSS, JavaScript, and image files in your 
+FastAPI project, move the following subdirectories into the FastAPI static folder:
+
+# Move these folders
+mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/css      /home/evidence/eksu_cloner/app/static/
+mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/js       /home/evidence/eksu_cloner/app/static/
+mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/img      /home/evidence/eksu_cloner/app/static/
+mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/plugins  /home/evidence/eksu_cloner/app/static/
+
+
+✅ Ensure the directory structure under app/static/ looks like:
+   
+    app/static/
+ ├── css/
+ ├── js/
+ ├── img/
+ └── plugins/
+
+This allows your login.html to correctly reference styles and scripts without broken links.
+
 ### 3. Build a FastAPI Backend.
 
 A simple FastAPI server is used to:
@@ -148,6 +173,6 @@ sensitive data.
 
     Evidence
 
-    GitHub: @Evidence_sog
+    GitHub: @evidencesog
 
 >>>>>>> fcc6779 (Initial commit for eksu portal cloner)
