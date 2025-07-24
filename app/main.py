@@ -8,11 +8,12 @@ from app.routes import login
 from app.db.database import init_db  # <--- Add this
 from fastapi.responses import RedirectResponse
 import uvicorn
-from pyngrok import ngrok
 
-# Set up a tunnel to the app on port 8000
-public_url = ngrok.connect(8000)
-print("Public URL:", public_url)
+#if you intend using pyngrok for public hosting, then uncomment line 14-16.
+
+#from pyngrok import ngrok #Set up a tunnel to the app on port 8000
+#public_url = ngrok.connect(8000)
+#print("Public URL:", public_url)
 
 # Start the FastAPI server
 if __name__ == "__main__":

