@@ -42,14 +42,14 @@ around digital safety.
 
 ## 🔄 Workflow Breakdown
 
-### 1. Clone the EKSU Portal (Using HTTrack) 
+**1. Clone the EKSU Portal (Using HTTrack)** 
 HTTrack was used to clone the real EKSU portal page locally:
 
 ```bash
 httrack "https://eksuportal.eksu.edu.ng/login" -O ./eksu_clone
 
 
-### 2. Extract and Customize HTML
+**2. Extract and Customize HTML** 
 
 From the HTTrack result:
 
@@ -88,7 +88,7 @@ From the HTTrack result:
 This allows your login.html to correctly reference styles and scripts without broken links.
 
 
-### 3. Build a FastAPI Backend:
+**3. Build a FastAPI Backend:**:
 
     A simple FastAPI server is used to:
 
