@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.routes import login
+from app.routes import admin
 from app.db.database import init_db  # <--- Add this
 from fastapi.responses import RedirectResponse
 import uvicorn
@@ -28,8 +29,10 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 # Initialize the database
 init_db()  # <--- Run this when the app starts
 
-# Include the router
+# Include the routers
 app.include_router(login.router)
+app.include_router(admin.router) 
+
 
 @app.get("/")
 async def root_redirect():
