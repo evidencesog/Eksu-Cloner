@@ -255,7 +255,7 @@ To contribute:
     This project is built for ethical, educational, and research purposes only. Let’s collaborate responsibly.
   
   
-  ✅ **Features **
+  ✅ **Features**
 
     ✅ Realistic cloned login interface
 
