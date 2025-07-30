@@ -88,7 +88,7 @@ From the HTTrack result:
 This allows your login.html to correctly reference styles and scripts without broken links.
 
 
-### 3. Build a FastAPI Backend.
+### 3. Build a FastAPI Backend:
 
     A simple FastAPI server is used to:
 
@@ -112,13 +112,17 @@ This allows your login.html to correctly reference styles and scripts without br
       sqlite> SELECT * FROM credentials;
 
     
-### 5. Expose Your Server Publicly
+### 5. Expose Your Server Publicly:
+
        instead of using Ngrok or cloudflare (banned), this project uses LocalTunnel(Though can we changed in the future),:
       It generates a public HTTPS link (e.g., https://yourname.loca.lt) that can be sent to test victims or shown in demos.
       And required a password which can be get using " curl https://loca.lt/mytunnelpassword 
     " OR " https://loca.lt/mytunnelpassword" OR "wget -q -O - https://loca.lt/mytunnelpassword" 
+    
+    
 
-### 6. 🔐 Admin Panel/Dashboard
+### 6. 🔐 Admin Panel/Dashboard:
+
        The Admin Dashboard provides a secure interface to view all submitted login credentials
        captured through the cloned portal. It displays a table with each record’s:
 
@@ -131,10 +135,42 @@ This allows your login.html to correctly reference styles and scripts without br
       This tool allows administrators or penetration testers to monitor login attempts
       in real time for analysis and educational research.
       
-      Visit " http://localhost:8000/admin?auth=letmein" to access the admin dashboard
+      Visit " http://localhost:8000/admin?auth=letmein" to access the admin dashboard.
       
+      
+    6.1  🔐 Admin Login System
 
-### 7. ✅ IP Address Logging Summary
+        E7-Security implemented a secure admin login page with hashed password authentication.
+
+        Session-based login persistence using SessionMiddleware.
+
+        Unauthorized users are redirected to the login page automatically.
+      
+    6.2 📋 Admin Dashboard
+
+        E7-Security created a modern, responsive dashboard to view captured credentials.
+
+        Table includes: ID, Username, Password, Timestamp, and IP Address.
+
+        Live data fetched from a SQLite3 database and rendered dynamically using Jinja2.
+        
+        
+    
+### 7. 📦 Environment Configuration
+
+         Added a .env file (SECRET_KEY) for better security practice.
+
+         Loaded securely using python-dotenv and ignored from Git tracking.
+
+     7.1 🔒 Security & Secrets
+
+         .env now holds SECRET_KEY for session middleware.
+  
+         Secrets are excluded from Git using .gitignore.  
+         
+          
+    
+### 8. ✅ IP Address Logging Summary
 
       The system automatically logs the IP address of every user that submits the login form. This feature:
 
@@ -219,7 +255,7 @@ To contribute:
     This project is built for ethical, educational, and research purposes only. Let’s collaborate responsibly.
   
   
-  ✅ Features
+  ✅ **Features **
 
     ✅ Realistic cloned login interface
 
