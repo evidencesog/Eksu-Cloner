@@ -44,4 +44,12 @@ def fetch_all_credentials():
     rows = cursor.fetchall()
     conn.close()
     return rows
+    
 
+def get_admin_user(username: str):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("SELECT * FROM admin_users WHERE username = ?", (username,))
+    user = c.fetchone()
+    conn.close()
+    return user

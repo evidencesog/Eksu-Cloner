@@ -2,6 +2,7 @@ from fastapi import APIRouter, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from app.db.database import fetch_all_credentials
+from fastapi.responses import RedirectResponse
 import os
 
 router = APIRouter()
@@ -15,8 +16,13 @@ async def view_admin_dashboard(request: Request, auth: str = ""):
         raise HTTPException(status_code=403, detail="Unauthorized access.")
 
     credentials = fetch_all_credentials()
-    return templates.TemplateResponse("admin.html", {
+    return templates.TemplateResponse("admin_dashboard.html", {
         "request": request,
         "credentials": credentials
     })
 
+@router.get("/admin", response_class=HTMLResponse)
+async def admin_dashboard(request: Request):
+    if request.session.get("admin") is None:
+        return RedirectResponse("/admin-login")
+    ...
