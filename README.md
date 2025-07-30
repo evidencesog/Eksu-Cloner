@@ -46,7 +46,7 @@ around digital safety.
 
 
 
-## 🧰 Tools & Tech Stack
+## 🧰 Tools & Tech Stack ( Written with Python)
 
 | Tool        | Use                                  |
 |-------------|---------------------------------------|
@@ -210,6 +210,8 @@ This allows your login.html to correctly reference styles and scripts without br
       This logging supports auditing and analysis of network sources involved in testing scenarios.
 
 
+🧾 Project Directory
+
 eksu_cloner/
 ├── app/
 │   ├── main.py
@@ -355,7 +357,7 @@ phishing, or unauthorized data collection. Always obtain proper consent before s
 sensitive data.
 Do NOT deploy or use this tool on any real or unauthorized system.
 
-🧠 Author: 
+📘Author: 
 
     Evidence SOG
     
