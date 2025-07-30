@@ -1,6 +1,6 @@
 
 
-<<<<<<<, =======, >>>>>>>
+<<<<<<< >>>>>>>
 
 # README from E7 Security:
 
@@ -28,6 +28,24 @@ around digital safety.
 
 ---
 
+
+## 📚 Table of Contents
+
+- [🎯 Overview](#-eksu-portal-cloner-educational-purpose-only)
+- [🛠️ Tools & Tech Stack](#-tools--tech-stack)
+- [📈 Workflow Breakdown](#-workflow-breakdown)
+- [🚀 How to Run the Project](#-how-to-run-the-project)
+- [🧑‍💼 Admin Panel/Dashboard](#-admin-paneldashboard)
+- [🧰 Features](#-features)
+- [🧪 Debugging Tips](#-debugging-tips)
+- [🧾 Project Directory](#-project-directory)
+- [🧱 Security & Secrets](#-security--secrets)
+- [🤝 Contributing](#-contributing)
+- [⚖️ Legal & Ethical Notice](#-legal--ethical-notice)
+
+
+
+
 ## 🧰 Tools & Tech Stack
 
 | Tool        | Use                                  |
@@ -42,7 +60,8 @@ around digital safety.
 
 ## 🔄 Workflow Breakdown
 
-### 1. Clone the EKSU Portal (Using HTTrack) 
+
+###1. Clone the EKSU Portal (Using HTTrack) 
 HTTrack was used to clone the real EKSU portal page locally:
 
 ```bash
@@ -155,6 +174,14 @@ This allows your login.html to correctly reference styles and scripts without br
         Live data fetched from a SQLite3 database and rendered dynamically using Jinja2.
         
         
+        To access the Admin Dashboard, you go to the route:
+           http://127.0.0.1:8000/admin/login
+           
+           Admin_Id: 731666:
+           Password: AdminPass001@
+        
+        After login, you’ll be redirected to /admin/dashboard to see logs.
+        
     
 ### 7. 📦 Environment Configuration
 
@@ -183,27 +210,53 @@ This allows your login.html to correctly reference styles and scripts without br
       This logging supports auditing and analysis of network sources involved in testing scenarios.
 
 
-Project_Directory/
+eksu_cloner/
 ├── app/
-│   ├── main.py               # FastAPI app logic
-│   ├── db/
-│   │   └── eksu.db           # SQLite database
+│   ├── main.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── login.py
+│   ├── utils/
+│   │   └── db.py
 │   ├── templates/
-│   │   └── login.html        # Cloned and modified EKSU login form
-│   └── static/               # Any CSS or JS
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── admin_login.html
+│   │   └── admin_dashboard.html
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── img/
+├── credentials.db
+├── .env
 ├── README.md
-├── pyproject.toml            # Poetry dependencies
+├── pyproject.toml
+├── secret_key.env
 
 
-🧪 HOW TO RUN THE PROJECT
+## 🚀 How to Run the Project
 
-🔧 1. Install Dependencies
-       " poetry install "
+### 1. Clone the Repo:
+```bash
 
-🚀 2. Run the Server
-      "  poetry run uvicorn app.main:app --reload"
+   git clone https://github.com/your-username/eksu_cloner.git
+   cd eksu_cloner
+   
+   
+### 2. Install Dependencies:
 
-🌍 3. Expose to Internet
+       poetry install
+
+### 3.Activate the Environment:
+
+      poetry shell
+
+### 4. Start the Server:
+      uvicorn app.main:app --reload
+
+
+### 5. 🌍 Expose to Internet
       " lt --port 8000 --subdomain eksu-portal" (TO BE RUN IN ANOTHER TAB OR TERMINAL)
       then you receive a public link.
 
@@ -254,35 +307,58 @@ To contribute:
 
     This project is built for ethical, educational, and research purposes only. Let’s collaborate responsibly.
   
-  
-  ✅ **Features**
+  🧰 Features
 
-    ✅ Realistic cloned login interface
+     ✅ Cloned UI of EKSU Login Page
+     ✅ SQLite3 database-backed credential storage
+     ✅ IP Address logging on login attempt
+     ✅ Admin-authenticated dashboard
+     ✅ Tailwind-powered clean dashboard UI
+     ✅ Secure secret key handling via .env file
+     ✅ Ngrok/Cloudflare Tunnel compatible for public testing
+     ✅ Ethical notice and intended academic use
 
-    ✅ SQLite backend for persistent storage
 
-    ✅ FastAPI backend for fast handling
+🧪 Debugging Tips
 
-    ✅ LocalTunnel for public demo access
+    Static Files Not Loading?
 
-    ✅ Managed using Poetry
+        Make sure static/ folder is in the correct location and included in app.mount()
+
+        Clear browser cache when testing updates.
+        
+   Check If Data Logged:
+   
+    --bash 
     
-    ✅ 🌐 IP Address logging
-    
-    ✅ 🧑‍💼 Admin dashboard to view submitted credentials
+     sqlite3 eksu_credentials.db
+    SELECT * FROM credentials LIMIT 5;
 
+
+🧱 Security & Secrets
+
+    All sensitive values (like SECRET_KEY) are stored in a .env file and loaded with python-dotenv.
+
+    Ensure .env is added to .gitignore:
+    
+    --bash:
+      .env
+       secret.key.env
+       *.db
+
+    
 
  ⚠️ Legal & Ethical Notice
 
 This project is strictly for ethical research and learning purposes. Do not use this project for illegal activities, 
 phishing, or unauthorized data collection. Always obtain proper consent before simulating login pages or collecting 
 sensitive data.
+Do NOT deploy or use this tool on any real or unauthorized system.
 
+🧠 Author: 
 
-🧑‍💻 Author
-
-    Evidence
-
+    Evidence SOG
+    
     GitHub: @evidencesog
 
 >>>>>>> fcc6779 (Initial commit for eksu portal cloner)
