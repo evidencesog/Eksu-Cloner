@@ -1,14 +1,16 @@
 from fastapi import APIRouter, Form, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
+from pathlib import Path
 from app.db.database import save_credentials  # Your custom save function
 
 router = APIRouter()
-templates = Jinja2Templates(directory="app/templates")
+BASE_DIR = Path(__file__).resolve().parent.parent
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 @router.get("/login", response_class=HTMLResponse)
 async def show_login(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    return templates.TemplateResponse(request, "login.html", {"request": request})
 
 @router.post("/login")
 async def process_login(request: Request, username: str = Form(...), password: str = Form(...)):

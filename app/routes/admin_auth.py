@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get("/admin-login", response_class=HTMLResponse)
 async def admin_login_page(request: Request):
-    return templates.TemplateResponse("admin_login.html", {"request": request})
+    return templates.TemplateResponse(request, "admin_login.html", {"request": request})
 
 @router.post("/admin-login")
 async def handle_admin_login(request: Request, username: str = Form(...), password: str = Form(...)):
@@ -18,4 +18,4 @@ async def handle_admin_login(request: Request, username: str = Form(...), passwo
     if user and verify_password(password, user[2]):
         request.session["admin"] = username
         return RedirectResponse("/admin", status_code=302)
-    return templates.TemplateResponse("admin_login.html", {"request": request, "error": "Invalid credentials"})
+    return templates.TemplateResponse(request, "admin_login.html", {"request": request, "error": "Invalid credentials"})
